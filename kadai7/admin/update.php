@@ -46,7 +46,7 @@ catch(Exception $e)
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>ろくまる農園</title>
+	<title>ニュース更新</title>
 </head>
 <body>
 	<h1>news update</h1>
