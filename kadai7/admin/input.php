@@ -1,21 +1,22 @@
 <?php
-session_start();
-session_regenerate_id(true);//セッションハイジャック防止
-if (isset($_SESSION['login'])==false) 
-{
-    print "ログインされていません";
-    print '<a href="login.php">ログイン画面へ</a>';
-    exit();
-}else{
-    print $_SESSION['staff_name'];
-    print "さんログイン中";
+    //session接続
+    session_start();
+    session_regenerate_id(true);//セッションハイジャック防止
+        if (isset($_SESSION['login'])==false) 
+    {
+            print "ログインされていません";
+            print '<a href="login.php">ログイン画面へ</a>';
+            exit();
+    }else{
+            print $_SESSION['staff_name'];
+            print "さんログイン中";
 
-}
+    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>ニュース新規追加</title>
     <style>
     	body{
@@ -31,7 +32,6 @@ if (isset($_SESSION['login'])==false)
     </style>
 </head>
 <body>
-	
 	<h1>news情報入力画面</h1>
 	<form action="input_execute.php" method="POST">
 		<p>Title:<input type="text" name="title"></p>

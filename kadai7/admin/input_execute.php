@@ -1,47 +1,48 @@
 <?php 
-session_start();
-session_regenerate_id(true);//セッションハイジャック防止
-if (isset($_SESSION['login'])==false) 
-{
-  print "ログインされていません";
-  print '<a href="login.php">ログイン画面へ</a>';
-  exit();
-}else{
-  print $_SESSION['staff_name'];
-  print "さんログイン中";
+    session_start();
+    session_regenerate_id(true);//セッションハイジャック防止
+      if (isset($_SESSION['login'])==false) 
+    {
+          print "ログインされていません";
+          print '<a href="login.php">ログイン画面へ</a>';
+          exit();
+    }else{
+          print $_SESSION['staff_name'];
+          print "さんログイン中";
 
-}
+    }
+
 //情報をget
-$pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8","root","");
+    $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8","root","");
 
-$sql = "select *from news";
+    $sql = "select *from news";
 
-$stmt=$pdo->prepare($sql);
+    $stmt=$pdo->prepare($sql);
 
-$stmt ->execute();
+    $stmt ->execute();
 
-$result = $stmt->fetchALL(PDO::FETCH_ASSOC);
-
-
-
-foreach ($result as $row) {
-   echo $row["news_title"]."<br>";
-   echo $row["news_detail"]."<br>";
-   echo $row["author"]."<br>";
-   echo $row["create_date"]."<br>";
-   echo "<hr>";
-}
-
-$pdo = null;
+    $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
 
-	$title=$_POST["title"];
-	$contents=$_POST["contents"];
-	$author=$_POST["author"];
 
-  echo $title;
-  echo $contents;
-  echo $author;
+    foreach ($result as $row) {
+          echo $row["news_title"]."<br>";
+          echo $row["news_detail"]."<br>";
+          echo $row["author"]."<br>";
+          echo $row["create_date"]."<br>";
+          echo "<hr>";
+      }
+
+    $pdo = null;
+
+
+	   $title=$_POST["title"];
+	   $contents=$_POST["contents"];
+	   $author=$_POST["author"];
+
+      echo $title;
+      echo $contents;
+      echo $author;
 
 
 

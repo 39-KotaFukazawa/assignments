@@ -1,13 +1,13 @@
 <?php 
-
+//情報受け取り
 $staff_name = $_POST['name'];
 $staff_pass = $_POST['pass'];
 $staff_pass2 = $_POST['pass2'];
-
+//サニタイズ
 $staff_name = htmlspecialchars($staff_name);
 $staff_pass = htmlspecialchars($staff_pass);
 $staff_pass2 = htmlspecialchars($staff_pass2);
-
+//入力チェック
 if ($staff_name=='') {
 	print "スタッフ名が入力されていません";
 }else{
@@ -26,6 +26,7 @@ if ($staff_name=='' || $staff_pass=='' || $staff_pass != $staff_pass2) {
 	print "<input type='button' onclick='history.back()' value='back'>";
 	print "</form>";
 }else{
+	//情報受け渡し
 	$staff_pass = md5($staff_pass);
 	print "<form method='Post'action='admin_add_done.php'>";
 	print '<input type="hidden" name="name" value="'.$staff_name.'">';

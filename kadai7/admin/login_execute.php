@@ -29,6 +29,7 @@ try
 		print "IDかパスワードが間違っています";
 		print '<a href="login.php">戻る</a>';
 	}else{
+		//session接続で、ログインにはloginを持たせる。
 		session_start();
 		$_SESSION['login']=1;
 		$_SESSION['staff_id'] = $id;

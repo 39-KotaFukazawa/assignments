@@ -1,44 +1,43 @@
 <?php
-session_start();
-session_regenerate_id(true);//セッションハイジャック防止
-if (isset($_SESSION['login'])==false) 
-{
-	print "ログインされていません";
-	print '<a href="login.php">ログイン画面へ</a>';
-	exit();
-}else{
-	print $_SESSION['staff_name'];
-	print "さんログイン中";
+		session_start();
+		session_regenerate_id(true);//セッションハイジャック防止
+		if (isset($_SESSION['login'])==false) 
+		{
+			print "ログインされていません";
+			print '<a href="login.php">ログイン画面へ</a>';
+			exit();
+		}else{
+			print $_SESSION['staff_name'];
+			print "さんログイン中";
 
-}
+		}
+	try//tryの位置はここでいいのか？？
+	{
 
-try
-{
+		$news_id=$_GET['id'];
 
-	$news_id=$_GET['id'];
+		$dsn = 'mysql:dbname=cs_academy;host=localhost';
+		$user='root';
+		$password='';
+		$dbh = new PDO($dsn,$user,$password);
+		$dbh -> query('SET NAMES utf8');
 
-	$dsn = 'mysql:dbname=cs_academy;host=localhost';
-	$user='root';
-	$password='';
-	$dbh = new PDO($dsn,$user,$password);
-	$dbh -> query('SET NAMES utf8');
+		$sql ='SELECT * FROM news WHERE news_id=? ';
+		$stmt = $dbh ->prepare($sql);
+		$data[] = $news_id;
+		$stmt->execute($data);
 
-	$sql ='SELECT * FROM news WHERE news_id=? ';
-	$stmt = $dbh ->prepare($sql);
-	$data[] = $news_id;
-	$stmt->execute($data);
+		$rec = $stmt->fetch(PDO::FETCH_ASSOC);
+		$title=$rec["news_title"];
+		$detail=$rec["news_detail"];
 
-	$rec = $stmt->fetch(PDO::FETCH_ASSOC);
-	$title=$rec["news_title"];
-	$detail=$rec["news_detail"];
-
-	$dbh=null;
-}
-catch(Exception $e)
-{
-	print 'ただいま障害により大変なご迷惑をおかけしています';
-	exit();
-}
+		$dbh=null;
+	}
+	catch(Exception $e)
+	{
+		print 'ただいま障害により大変なご迷惑をおかけしています';
+		exit();
+	}
 
 ?>
 

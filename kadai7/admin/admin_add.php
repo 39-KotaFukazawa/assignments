@@ -5,6 +5,7 @@
 	<title>admin追加</title>
 </head>
 <body>
+	<!--スタッフを追加する-->
 	<h1>add staffs</h1>
 	<form method="POST" action="admin_add_check.php">
 		<p>スタッフ名を入力してください</p>
@@ -16,6 +17,5 @@
 		<p><input type="button" onclick="history.back()" value="back"></p>
 		<input type="submit" value="OK">
 	</form>
-
 </body>
 </html>
