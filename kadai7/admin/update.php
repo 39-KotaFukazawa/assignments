@@ -46,6 +46,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>ニュース更新</title>
+<style>
+	body{
+		text-align: center;
+		}
+</style>
 </head>
 <body>
 	<h1>news update</h1>

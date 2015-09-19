@@ -17,7 +17,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>管理者ホーム</title>
 </head>
 <body>
 <ul>
