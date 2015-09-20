@@ -31,6 +31,9 @@
          echo $row["author"]."<br>";
          echo $row["create_date"]."<br>";
          echo '<a href="update.php?id='.$row["news_id"].'">修正</a>';
+         if ($row['show_flg']==1) {
+            echo "表示";
+         }
          echo "<hr>";
       }
 

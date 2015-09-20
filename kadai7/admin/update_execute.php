@@ -16,6 +16,7 @@
 		$id = $_POST['id'];
 		$title = $_POST['title'];
 		$detail = $_POST['detail'];
+		$flag = $_POST['display'];
 
 
 		
@@ -30,12 +31,14 @@
 		$dbh = new PDO($dsn,$user,$password);
 		$dbh -> query('SET NAMES utf8');
 
-		$sql ='UPDATE news SET news_title=?,news_detail=?,update_date=sysdate() WHERE news_id=?';
+		$sql ='UPDATE news SET news_title=?,news_detail=?,update_date=sysdate(),show_flg=? WHERE news_id=?';
 		$stmt = $dbh ->prepare($sql);
 		$data[]=$title;
 		$data[]=$detail;
+		$data[]=$flag;
 		$data[]=$id;
 		$stmt->execute($data);
+		var_dump($stmt);
 
 		$dbh=null;
 

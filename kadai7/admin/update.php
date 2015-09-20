@@ -63,6 +63,9 @@
 		<input type="text" name="title" style="width:200px" value="<?php print $title; ?>">
 		<p>内容を修正してください</p>
 		<input type="text" name="detail" style="width:700px" value="<?php print $detail; ?>">
+		<p>表示するかどうか</p>
+		<input type="radio" name="display" value="1">表示
+		<input type="radio" name="display" value="2">非表示
 		<p><input type="button" onclick="history.back()" value="back"></p>
 		<input type="submit" value="OK">
 	</form>
