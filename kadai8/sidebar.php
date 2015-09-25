@@ -42,9 +42,7 @@
       <h1>最新ニュース</h1>
       <?php
       foreach ($result as $row) {
-           echo $row["news_id"]."<br>";
            echo '<p><a href="news_detail.php?news_id='.$row['news_id'].'">'.$row["news_title"].'</a></p>';
-           echo $row["news_contents"]."<br>";
            echo $row["news_date"]."<br>";
            echo $row["news_category"]."<br>";
            //$row["news_image"];

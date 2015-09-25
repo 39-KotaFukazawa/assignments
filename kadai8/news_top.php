@@ -2,7 +2,7 @@
   //情報をget
     $pdo = new PDO("mysql:host=localhost;dbname=cms_news;charset=utf8","root","");
 
-    $sql = "select * from news";
+    $sql = "select * from news limit 30";
 
     $stmt=$pdo->prepare($sql);
 
@@ -10,16 +10,7 @@
 
     $gather = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-    foreach ($gather as $news) {
-           $news["news_id"]."<br>";
-           $news["news_title"]."<br>";
-           $news["news_contents"]."<br>";
-           $news["news_date"]."<br>";
-           $news["news_category"]."<br>";
-           $news["news_image"];
-           "<hr>";
-      }
-
+    
       //画像取得
       $img_path = "upload";
       $directry = new RecursiveDirectoryIterator($img_path); //走査するディレクトリを指定
@@ -45,10 +36,20 @@
         if ($news["news_category"]=='sports'){
           echo $news["news_id"]."<br>";
           echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
-          echo $news["news_contents"]."<br>";
+          $news_contents=$news["news_contents"];
+          $news_contents_length = mb_strlen($news_contents);
+          $news_short = mb_substr($news_contents,0,10);
+          if ($news_contents_length<=5)
+          {
+            echo $news_short."<br>";
+
+          }elseif ($news_contents_length>=5) 
+          {
+            echo $news_short.'....<br>';
+          }
+          
           echo $news["news_date"]."<br>";
-          echo  $news["news_category"]."<br>";
-           //$row["news_image"];
+          echo '<img src="' . $news['news_image'] . '">';
            echo "<hr>";
          }
          }
@@ -60,10 +61,19 @@
         if ($news["news_category"]=='economics'){
           echo $news["news_id"]."<br>";
           echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
-          echo $news["news_contents"]."<br>";
+          $news_contents=$news["news_contents"];
+          $news_contents_length = mb_strlen($news_contents);
+          $news_short = mb_substr($news_contents,0,10);
+          if ($news_contents_length<=5)
+          {
+            echo $news_short."<br>";
+
+          }elseif ($news_contents_length>=5) 
+          {
+            echo $news_short.'....<br>';
+          }
           echo $news["news_date"]."<br>";
-          echo $news["news_category"]."<br>";
-          echo $news["news_image"];
+          echo '<img src="' . $news['news_image'] . '">';
            echo "<hr>";
          }
          }
@@ -75,10 +85,19 @@
         if ($news["news_category"]=='business'){
           echo $news["news_id"]."<br>";
           echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
-          echo $news["news_contents"]."<br>";
+          $news_contents=$news["news_contents"];
+          $news_contents_length = mb_strlen($news_contents);
+          $news_short = mb_substr($news_contents,0,10);
+          if ($news_contents_length<=5)
+          {
+            echo $news_short."<br>";
+
+          }elseif ($news_contents_length>=5) 
+          {
+            echo $news_short.'....<br>';
+          }
           echo $news["news_date"]."<br>";
-          echo  $news["news_category"]."<br>";
-          echo '<li> <img src="' . $news['news_image'] . '"></li>';
+          echo '<img src="' . $news['news_image'] . '">';
            echo "<hr>";
          }
          }
@@ -90,10 +109,19 @@
         if ($news["news_category"]=='technology'){
           echo $news["news_id"]."<br>";
           echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
-          echo $news["news_contents"]."<br>";
+          $news_contents=$news["news_contents"];
+          $news_contents_length = mb_strlen($news_contents);
+          $news_short = mb_substr($news_contents,0,10);
+          if ($news_contents_length<=5)
+          {
+            echo $news_short."<br>";
+
+          }elseif ($news_contents_length>=5) 
+          {
+            echo $news_short.'....<br>';
+          }
           echo $news["news_date"]."<br>";
-          echo  $news["news_category"]."<br>";
-           //$row["news_image"];
+           echo '<img src="' . $news['news_image'] . '">';
            echo "<hr>";
          }
          }
@@ -105,10 +133,19 @@
         if ($news["news_category"]=='innovation'){
           echo $news["news_id"]."<br>";
           echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
-          echo $news["news_contents"]."<br>";
+          $news_contents=$news["news_contents"];
+          $news_contents_length = mb_strlen($news_contents);
+          $news_short = mb_substr($news_contents,0,10);
+          if ($news_contents_length<=5)
+          {
+            echo $news_short."<br>";
+
+          }elseif ($news_contents_length>=5) 
+          {
+            echo $news_short.'....<br>';
+          }
           echo $news["news_date"]."<br>";
-          echo  $news["news_category"]."<br>";
-           //$row["news_image"];
+          echo '<img src="' . $news['news_image'] . '">';
            echo "<hr>";
          }
          }
