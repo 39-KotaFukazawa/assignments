@@ -20,7 +20,7 @@ if($flag==false){
 }else{
   while($result=$stmt->fetch(PDO::FETCH_ASSOC)){
     $view .= '<li> <img src="' . $result['user_image'] . '"></li><p>
-    <a href="user_detail.php?user_id='.$result['user_id'].'">'.$result["user_name"].'</a></p>';
+    <a href="user_detail.php?user_id='.$result['user_id'].'&user_name='.$result['user_name'].'">'.$result["user_name"].'</a></p>';
          
   }
 }
@@ -59,6 +59,7 @@ if($flag==false){
       <h3><a href="loigin.php">会員登録/LOGIN</a></h3>
     </div>
     <div class="sb-slidebar sb-left">
+
       <p style="color:white">編集画面（要ログイン）</p>
     <ul>
         <li><a class="hvr-bounce-out" href="news_edit.php">NEWS編集</a></li>

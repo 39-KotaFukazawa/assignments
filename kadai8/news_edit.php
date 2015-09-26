@@ -4,7 +4,7 @@
   if (isset($_SESSION['member_login'])==false) 
   {
     print "WELCOME GUEST";
-    header('LOCATION,loigin.php');
+    header('Location:loigin.php');
   }else
   {
     print "WELCOME ";
@@ -38,8 +38,6 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="news_edit.php">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
         <li style="color:white"><?php print $_SESSION['member_name'].'ログイン中';?> </li>
       </ul>
     </div><!--/.nav-collapse -->

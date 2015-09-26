@@ -18,7 +18,6 @@
 
         chmod($file_dir_path.$uniq_name,0644);//権限を与える。
 
-        echo $uniq_name."をアップロードしました。";
         $img = '<img src="'.$file_dir_path.$uniq_name.'">';
     }
 }
@@ -161,6 +160,17 @@ if ($name=='' || $pass1=='' || $pass1 != $pass2)
   print "<input type='button' onclick='history.back()' value='back'>";
   print "</form>";
  }
+ 
+ if ($okflag==true) {
+
+
+    echo $uniq_name."をアップロードしました。";
+    print '登録を完了しました。';
+    print '<a href="loigin.php">ログインする</a>';
+ }
+
+
+
 
       ?>
     </div>

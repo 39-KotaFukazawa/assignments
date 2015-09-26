@@ -3,14 +3,14 @@
   session_regenerate_id(true);
   if (isset($_SESSION['member_login'])==false) 
   {
-    print "WELCOME GUEST";
-    print '<a href="member_login.php">会員ログイン</a>';
+     "WELCOME GUEST";
+   '<a href="member/member_login.php">会員ログイン</a>';
   }else
   {
-    print "WELCOME ";
-    print $_SESSION['member_name'];
-    print "様";
-    print '<a href="member_logout.php">LOGOUT</a>';
+     "WELCOME ";
+     $_SESSION['member_name'];
+     "様";
+     '<a href="member/member_logout.php">LOGOUT</a>';
   }
   //情報をget
     $pdo = new PDO("mysql:host=localhost;dbname=cms_news;charset=utf8","root","");
@@ -44,11 +44,11 @@
     <div id="contents">
       <h1>カテゴリー別news</h1>
       <div class="sports">
-        <h2><a href="sports_news.php">sports</a></h2>
+        <h2><a href="category/sports_news.php">sports</a></h2>
       <?php foreach ($gather as $news) {
         if ($news["news_category"]=='sports'){
           
-          echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
+          echo '<p><a href="news/news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
           $news_contents=$news["news_contents"];
           $news_contents_length = mb_strlen($news_contents);
           $news_short = mb_substr($news_contents,0,10);
@@ -73,7 +73,7 @@
       <?php foreach ($gather as $news) {
         if ($news["news_category"]=='economics'){
          
-          echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
+          echo '<p><a href="news/news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
           $news_contents=$news["news_contents"];
           $news_contents_length = mb_strlen($news_contents);
           $news_short = mb_substr($news_contents,0,10);
@@ -93,11 +93,11 @@
       ?>
     </div>
     <div class="business">
-      <h2><a href="business_news.php">business</a></h2>
+      <h2><a href="category/business_news.php">business</a></h2>
       <?php foreach ($gather as $news) {
         if ($news["news_category"]=='business'){
           
-          echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
+          echo '<p><a href="news/news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
           $news_contents=$news["news_contents"];
           $news_contents_length = mb_strlen($news_contents);
           $news_short = mb_substr($news_contents,0,10);
@@ -117,11 +117,11 @@
       ?>
     </div>
     <div class="technology">
-      <h2><a href="technology_news.php">technology</a></h2>
+      <h2><a href="category/technology_news.php">technology</a></h2>
       <?php foreach ($gather as $news) {
         if ($news["news_category"]=='technology'){
           
-          echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
+          echo '<p><a href="news/news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
           $news_contents=$news["news_contents"];
           $news_contents_length = mb_strlen($news_contents);
           $news_short = mb_substr($news_contents,0,10);
@@ -141,11 +141,11 @@
       ?>
     </div>
     <div class="innovation">
-      <h2><a href="innovation_news.php">innovation</a></h2>
+      <h2><a href="category/innovation_news.php">innovation</a></h2>
       <?php foreach ($gather as $news) {
         if ($news["news_category"]=='innovation'){
           
-          echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
+          echo '<p><a href="news/news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
           $news_contents=$news["news_contents"];
           $news_contents_length = mb_strlen($news_contents);
           $news_short = mb_substr($news_contents,0,10);

@@ -13,7 +13,12 @@ if(isset($_COOKIE[session_name()])==true)
 	<title>ログアウト</title>
 </head>
 <body>
+<?php include('header.php'); ?>
+<div id="contents">
 <h1>ログアウトしました</h1>
 <a href="loigin.php">ログイン画面へ</a>
+</div>
+
+<?php include('sidebar.php'); ?>
 </body>
 </html>

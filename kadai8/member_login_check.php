@@ -42,7 +42,7 @@ catch(Exception $e)
     	<?php
     		if ($rec ==false) {
 		print "メールアドレスかパスワードが間違っています<br>";
-		print '<a href="news_top.php">戻る</a>';
+		print '<a href="loigin.php">戻る</a>';
 	}else{
 		session_start();
 		$_SESSION['member_login']=1;

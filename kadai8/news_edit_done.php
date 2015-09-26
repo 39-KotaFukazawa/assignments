@@ -59,31 +59,21 @@
 //以下チェック
  if ($title=='') 
  {
-  print 'タイトルが入力されていません';
+  
   $okflag = false;
  
  }
- else
- {
-  print 'タイトル<br/>';
-  print $title;
-  print '<br/>';
- }
+ 
 
  
 
  if ($contents=='') 
  {
-  print '内容が登録されていません';
+ 
   $okflag = false;
   
  }
- else
- {
-  print '内容<br/>';
-  print $contents;
-  print '<br/>';
- }
+ 
 
  
 if ($title=='' || $contents=='') 
@@ -150,8 +140,7 @@ if ($title=='' || $contents=='')
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="news_edit.php">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        
         <li><?php print $_SESSION['member_name'].'ログイン中';?> </li>
       </ul>
     </div>/.nav-collapse
@@ -163,6 +152,62 @@ if ($title=='' || $contents=='')
   <div class="text-center">
     <h1 style="padding-top:100px">NEWS 編集画面</h1>
     <p class="lead">ここでnewsを追加できます。<br> ガンガン更新しましょう。</p>
+    <p>
+      <?php
+      $okflag = true;
+
+
+//以下チェック
+ if ($title=='') 
+ {
+  print 'タイトルが入力されていません';
+  $okflag = false;
+ 
+ }
+ else
+ {
+  print 'タイトル<br/>';
+  print $title;
+  print '<br/>';
+ }
+
+ 
+
+ if ($contents=='') 
+ {
+  print '内容が登録されていません';
+  $okflag = false;
+  
+ }
+ else
+ {
+  print '内容<br/>';
+  print $contents;
+  print '<br/>';
+ }
+
+ 
+if ($title=='' || $contents=='') 
+{
+  print "<form>";
+  print "<input type='button' onclick='history.back()' value='back'>";
+  print "</form>";
+ }
+
+ if ($okflag==true) 
+ {
+  
+  print '登録が完了しました';
+
+
+
+
+
+ }
+ 
+
+      ?>
+    </p>
   </div>
 </body>
 </html>

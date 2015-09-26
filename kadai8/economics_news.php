@@ -44,7 +44,6 @@
            echo $news["news_contents"]."<br>";
            echo $news["news_date"]."<br>";
            echo '<p><a href="news_detail.php?news_id='.$news['news_id'].'">'.$news["news_title"].'</a></p>';
-           //$row["news_image"];
            echo "<hr>";
       }
       ?>
