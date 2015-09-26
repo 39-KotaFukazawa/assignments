@@ -103,13 +103,14 @@ if ($title=='' || $contents=='')
   $dbh -> query('SET NAMES utf8');
 
 
-  $sql ='INSERT INTO news(news_title, news_contents,news_image, news_date, news_category)VALUES
-        (?,?,?,sysdate(),?)';
+  $sql ='INSERT INTO news(news_title, news_contents,news_image, news_date, news_category,news_author)VALUES
+        (?,?,?,sysdate(),?,?)';
   $stmt = $dbh ->prepare($sql);
   $data[]=$title;
   $data[]=$contents;
   $data[]=$file_dir_path.$uniq_name;
   $data[]=$category;
+  $data[]=$_SESSION['member_name'];
 
   $stmt->execute($data);
 

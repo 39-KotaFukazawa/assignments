@@ -59,15 +59,20 @@ if($flag==false){
       <h3><a href="loigin.php">会員登録/LOGIN</a></h3>
     </div>
     <div class="sb-slidebar sb-left">
+      <p style="color:white">編集画面（要ログイン）</p>
     <ul>
         <li><a class="hvr-bounce-out" href="news_edit.php">NEWS編集</a></li>
+    </ul>
+    <p style="color:white">カテゴリー</p>
+    <ul>
         <li><a class="hvr-pop" href="sports_news.php">SPORTS</a></li>
         <li><a class="hvr-pop" href="economics_news.php">ECONOMICS</a></li>
         <li><a class="hvr-bounce-out" href="business_news.php">BUSINESS</a></li>
         <li><a class="hvr-bounce-out" href="technology_news.php">TECHNOLOGY</a></li>
         <li><a class="hvr-bounce-out" href="innovation_news.php">INNOVATION</a></li>
-        
       </ul>
+        
+     
   </header>
   <!-- メニューバー -->
   <!-- コンテンツ -->

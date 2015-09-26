@@ -27,16 +27,7 @@ try
 
 	$rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
-	if ($rec ==false) {
-		print "メールアドレスかパスワードが間違っています";
-		print '<a href="news_top.php">戻る</a>';
-	}else{
-		session_start();
-		$_SESSION['member_login']=1;
-		$_SESSION['member_code'] = $rec['user_id'];
-		$_SESSION['member_name'] =$rec['user_name'];
-		header('Location:news_top.php');
-	}
+	
 }
 catch(Exception $e)
 {
@@ -48,6 +39,18 @@ catch(Exception $e)
 
 <?php include('header.php') ?>
     <div id="contents">
+    	<?php
+    		if ($rec ==false) {
+		print "メールアドレスかパスワードが間違っています<br>";
+		print '<a href="news_top.php">戻る</a>';
+	}else{
+		session_start();
+		$_SESSION['member_login']=1;
+		$_SESSION['member_code'] = $rec['user_id'];
+		$_SESSION['member_name'] =$rec['user_name'];
+		header('Location:news_top.php');
+	}
+    	?>
       
     </div>
     <?php include('sidebar.php'); ?>

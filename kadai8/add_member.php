@@ -43,53 +43,35 @@
 //以下チェック
  if ($name=='') 
  {
- 	print 'お名前が入力されていません';
+ 
  	$okflag = false;
  
  }
- else
- {
- 	print 'お名前<br/>';
- 	print $name;
- 	print '<br/>';
- }
+ 
 
  if (preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/',$email)==0) 
  {
- 	print 'メールアドレスを正確に入力してください<br/><br/>';
+ 	
  	$okflag = false;
  	
  }
- else
- {
- 	print 'メールアドレス<br/>';
- 	print $email;
- 	print '<br/>';
- }
+ 
 
  if ($description=='') 
  {
- 	print '自己紹介が登録されていません';
+ 
  	$okflag = false;
  	
  }
- else
- {
- 	print '自己紹介<br/>';
- 	print $description;
- 	print '<br/>';
- }
-
+ 
  if ($pass1 != $pass2) 
  {
-	print "パスワードが一致しません";
+	
 	$okflag = false;
 }
 if ($name=='' || $pass1=='' || $pass1 != $pass2) 
 {
-	print "<form>";
-	print "<input type='button' onclick='history.back()' value='back'>";
-	print "</form>";
+	$okflag=false;
  }
 
  if ($okflag==true) 
@@ -120,39 +102,67 @@ if ($name=='' || $pass1=='' || $pass1 != $pass2)
 
  }
  
-
- // 	//1. 接続します
- //      $pdo = new PDO('mysql:dbname=cms_news;host=localhost', 'root', '');
- //      //2. DB文字コードを指定
- //      $stmt = $pdo->query('SET NAMES utf8');
- //      //３．データ登録SQL作成
- //      $stmt = $pdo->prepare("INSERT INTO user(user_id,user_name, user_email,user_pass, user_image, user_description)VALUES
- //      	(NULL,:name,:email,:pass1,:image,:description");
- //      $stmt->bindValue(':name', $name);
- //      $stmt->bindValue(':email', $email);
- //      $stmt->bindValue(':pass1', $pass1);
- //      $stmt->bindValue(':image', $file_dir_path.$uniq_name);
- //      $stmt->bindValue(':description', $description);
- //      $status = $stmt->execute();
- //      if($status==false){
- //        echo "SQLエラー";
- //        exit;
- //      }else{
- //        echo "登録完了！";
- //      }
-
- //      }else{
- //        echo "Error:アップロードできませんでした。";
- //      }
- // // else
- // {
- // 	print '<input type="button" onclick="history.back()" value="戻る">';
- // }
 ?>
 <!--HTMl-->
 <?php include('header.php') ?>
     <div id="contents">
-      
+      <?php
+      $okflag = true;
+
+
+//以下チェック
+ if ($name=='') 
+ {
+  print 'お名前が入力されていません';
+  $okflag = false;
+ 
+ }
+ else
+ {
+  print 'お名前<br/>';
+  print $name;
+  print '<br/>';
+ }
+
+ if (preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/',$email)==0) 
+ {
+  print 'メールアドレスを正確に入力してください<br/><br/>';
+  $okflag = false;
+  
+ }
+ else
+ {
+  print 'メールアドレス<br/>';
+  print $email;
+  print '<br/>';
+ }
+
+ if ($description=='') 
+ {
+  print '自己紹介が登録されていません';
+  $okflag = false;
+  
+ }
+ else
+ {
+  print '自己紹介<br/>';
+  print $description;
+  print '<br/>';
+ }
+
+ if ($pass1 != $pass2) 
+ {
+  print "パスワードが一致しません";
+  $okflag = false;
+}
+if ($name=='' || $pass1=='' || $pass1 != $pass2) 
+{
+  print "<form>";
+  print "<input type='button' onclick='history.back()' value='back'>";
+  print "</form>";
+ }
+
+      ?>
     </div>
  <?php include('sidebar.php'); ?>
 

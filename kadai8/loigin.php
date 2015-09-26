@@ -7,6 +7,7 @@
 		<p>パスワード</p>
 		<input type="password" name="pass">
 		<input type="submit" value="LOGIN">
+	<p><a href="logout.php">logout</a></p>
 	</form>
 
 	<h1>新規の方はこちら</h1>

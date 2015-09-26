@@ -4,7 +4,7 @@
   if (isset($_SESSION['member_login'])==false) 
   {
     print "WELCOME GUEST";
-    print '<a href="member_login.php">会員ログイン</a>';
+    header('LOCATION,loigin.php');
   }else
   {
     print "WELCOME ";
