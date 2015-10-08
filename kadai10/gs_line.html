@@ -10,6 +10,8 @@
     <title>Line風チャットアプリ</title>
     <link rel="stylesheet" href="gs_line.css" type="text/css" />
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/v2/0.3/peer.js"></script>
+    <script type="text/javascript" src="gs_video.js"></script>
     <script src="http://cdn.mlkcca.com/v2.0.0/milkcocoa.js"></script>
     <script>
     $(function() {
@@ -139,7 +141,22 @@
             <button id="del" class="postarea-button">投稿を削除する</button>
         </div>
     </div>
-    <div id="count"></div>
+    <div id="videochat">
+        <h1>Video Chat</h1>
+    <div>
+        <video id="my-video" style="width: 300px;" autoplay></video>
+        <video id="peer-video" style="width: 300px;" autoplay></video>
+    </div>
+    <div>
+        <p>MyID: <span id="my-id">-</span></p>
+        <p>PeerID: <span id="peer-id">-</span></p>
+    </div>
+    <div>
+        <input type="text" placeholder="PeerID" id="peer-id-input">
+        <button id="call-start">Start Call</button>
+        <button id="call-end">End Call</button>
+    </div>
+    </div>
     <div id="messages" class="content">
         <div id="dummy"></div>
     </div>

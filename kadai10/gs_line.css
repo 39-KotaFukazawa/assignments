@@ -186,7 +186,9 @@ textarea {
   text-align: right;
   color: orange;
 }
-
+#videochat{
+  text-align: center;
+}
 
 .container .postarea .postarea-share .postarea-share-button a:hover,.container .postarea .postarea-button:hover {
   background:#E6E6E6;
